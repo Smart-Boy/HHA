@@ -1,0 +1,39 @@
+{
+	"user" : [
+		{"name":"name","unit":"null","fre":0},
+		{"name":"age","unit":"null","fre":0},
+		{"name":"sex","unit":"null","fre":0},
+		{"name":"birthday","unit":"null","fre":0}
+	],
+	"relationship" : [
+		{"name":"son","unit":"null","fre":0},
+		{"name":"dau","unit":"null","fre":0},
+		{"name":"parent","unit":"null","fre":0},
+		{"name":"half","unit":"null","fre":0},
+		{"name":"friend","unit":"null","fre":60}
+	],
+	"element" : [
+		{"name":"体重","unit":"公斤","fre":30},
+		{"name":"身高","unit":"米","fre":180},
+		{"name":"血压","unit":"毫米汞柱","fre":1},
+		{"name":"心率","unit":"次/分钟","fre":1},
+		{"name":"睡眠质量","unit":"null","fre":1},
+		{"name":"睡眠时间","unit":"小时","fre":1},
+		{"name":"心情","unit":"null","fre":1}
+	],
+	"senior" : [
+		{"name":"血脂","unit":"毫摩/升","fre":10},
+		{"name":"血糖","unit":"毫摩/升","fre":10},
+		{"name":"体温","unit":"毫摩/升","fre":3}
+	],
+	"history" : [
+		{"name":"高血压","unit":"null","fre":0},
+		{"name":"糖尿病","unit":"null","fre":0},
+		{"name":"神经衰弱","unit":"null","fre":0},
+		{"name":"脑血栓","unit":"null","fre":0},
+		{"name":"冠心病","unit":"null","fre":0},
+		{"name":"心肌梗","unit":"null","fre":0},
+		{"name":"关节炎","unit":"null","fre":0},
+		{"name":"风湿病","unit":"null","fre":0}
+	]
+}

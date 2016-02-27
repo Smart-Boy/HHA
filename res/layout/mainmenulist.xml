@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="47dp"
+        android:background="@drawable/header"
+        android:orientation="horizontal"
+        android:padding="0dip" >
+
+        <Button
+            android:id="@+id/returnbutton"
+            android:layout_width="50dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/changereturnbutton"
+            android:gravity="right|center_vertical"
+            android:paddingRight="8dp"
+            android:text="@string/back"
+            android:textColor="@drawable/changereturntext"
+            android:textSize="14sp" >
+        </Button>
+
+        <TextView
+            android:id="@+id/show_username"
+            android:layout_width="0dip"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.80"
+            android:gravity="right|center_vertical" />
+
+        <ToggleButton
+            android:id="@+id/login_btn"
+            android:layout_width="80dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:textOn="登出"
+            android:textOff="登陆"
+            android:background="@drawable/changetogglebtn"
+            android:textColor="@drawable/changereturntext" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/listLinearLayout"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+        <ListView 
+            android:id="@id/android:list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:dividerHeight="0dip"
+            android:fadingEdge="none"  
+            android:drawSelectorOnTop="false"
+            android:scrollbars="vertical"
+            android:textSize="30sp"
+            />
+    </LinearLayout>	
+</LinearLayout>

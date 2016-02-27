@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    >
+     <LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="47dp"
+	    android:orientation="horizontal" 
+	    android:background="@drawable/header"
+	    android:padding="0dip">
+		<Button
+		    android:id="@+id/returnbutton"
+		    android:layout_width="50dp"
+		    android:layout_height="32dp"
+		    android:layout_gravity="center_vertical"
+		    android:layout_marginLeft="10dp"
+		    android:gravity="right|center_vertical"
+		    android:paddingRight="8dp"
+		    android:text="@string/back"
+		    android:textColor="@drawable/changereturntext"
+		    android:textSize="14sp"
+		    android:background="@drawable/changereturnbutton" >    
+		</Button> 	
+    </LinearLayout>
+    
+      <LinearLayout
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical" >
+
+          <LinearLayout
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical" >
+
+              <TextView
+                  android:id="@+id/blackLine"
+                  android:layout_width="fill_parent"
+                  android:layout_height="1dp"
+                  android:background="#dcdcdc" />
+
+              <TextView
+                  android:id="@+id/description"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="10dp"
+                  android:gravity="center_horizontal"
+                  android:text="@string/systemsound"
+                  android:textColor="#000000"
+                  android:textSize="30sp" />
+
+              <SeekBar
+                  android:id="@+id/seekBar"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="5dp"
+                  android:layout_marginLeft="5dp"
+                  android:layout_marginRight="5dp"
+                  android:layout_marginTop="10dp"
+                  android:max="100" />
+
+              <TextView
+                  android:id="@+id/percenttextView"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_horizontal"
+                  android:textColor="#a9a9a9"
+                  android:textSize="20sp" />
+          </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical" >
+
+              <TextView
+                  android:id="@id/blackLine"
+                  android:layout_width="fill_parent"
+                  android:layout_height="1dp"
+                  android:background="#dcdcdc" />
+
+              <TextView
+                  android:id="@+id/setLanguage"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="5dp"
+                  android:layout_marginTop="10dp"
+                  android:gravity="center_horizontal"
+                  android:text="@string/setlanguage"
+                  android:textColor="#000000"
+                  android:textSize="30sp" />
+
+              <RadioGroup
+                  android:id="@+id/languageVideoGroup"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="5dp"
+                  android:gravity="center_horizontal"
+                  android:orientation="horizontal" >
+
+                  <RadioButton
+                      android:id="@+id/hanyuRadioButton"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="@string/hanyu"
+                      android:textColor="#000000"
+                      android:textSize="20sp" />
+
+                  <RadioButton
+                      android:id="@+id/yueyuRadioButton"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="20dp"
+                      android:text="@string/yueyu"
+                      android:textColor="#000000"
+                      android:textSize="20sp" />
+              </RadioGroup>
+          </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical" >
+
+              <TextView
+                  android:id="@id/blackLine"
+                  android:layout_width="fill_parent"
+                  android:layout_height="1dp"
+                  android:background="#dcdcdc" />
+
+              <TextView
+                  android:id="@+id/setVoice"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="5dp"
+                  android:layout_marginTop="10dp"
+                  android:gravity="center_horizontal"
+                  android:text="@string/setvoice"
+                  android:textColor="#000000"
+                  android:textSize="30sp" />
+
+              <Spinner
+                  android:id="@+id/soundSpinner"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:entries="@array/sound"
+                  android:gravity="center_horizontal" />
+
+              <TextView
+                  android:id="@id/blackLine"
+                  android:layout_width="fill_parent"
+                  android:layout_height="0.5dp"
+                  android:background="#dcdcdc" />
+          </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_weight="12.66"
+              android:orientation="vertical" >
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" >
+
+                  <TextView
+                      android:id="@+id/debug_mode_str"
+                      android:layout_width="240dp"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="5dp"
+                      android:layout_marginTop="5dp"
+                      android:gravity="center_horizontal"
+                      android:text="@string/debug_mode"
+                      android:textColor="#000000"
+                      android:textSize="26sp" />
+
+                  <CheckBox
+                      android:id="@+id/CheckBoxDebug"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" >
+
+                  <TextView
+                      android:id="@+id/TextView01"
+                      android:layout_width="240dp"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="5dp"
+                      android:layout_marginTop="5dp"
+                      android:gravity="center_horizontal"
+                      android:text="@string/network_mode"
+                      android:textColor="#000000"
+                      android:textSize="26sp" />
+
+                  <CheckBox
+                      android:id="@+id/CheckBoxNetwork"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+
+              </LinearLayout>
+
+          </LinearLayout>
+      </LinearLayout>
+
+</LinearLayout>

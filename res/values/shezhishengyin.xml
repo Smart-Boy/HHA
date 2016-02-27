@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="sound">
+
+    <item>晓燕 普通话</item>
+
+    <item>楠楠 普通话</item>
+
+    <item>小倩 东北话</item>
+
+    <item>晓美 粤语</item>
+
+    <item>小强 湖南话</item>
+
+    </string-array>
+
+</resources>

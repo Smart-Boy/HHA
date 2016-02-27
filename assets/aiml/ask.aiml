@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<aiml>
+	<category>
+		<regex>answer</regex>
+		<template>
+			<random>
+				<li>恩，了解</li>
+				<li>恩，明白了</li>
+				<li>好的，懂了</li>
+				<li>恩的，明白</li>
+				<li>好的</li>
+				<li>恩，我知道了</li>
+				<li>知道了</li>
+				<li>ok，懂了</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<regex>ask_name</regex>
+		<template>
+			<random>
+				<li>您的名字是？</li>
+				<li>您怎么称呼？</li>
+				<li>我该如何称呼您呢？</li>
+			</random>
+		</template>
+	</category>
+	<category>
+		<regex>我 * #叫|是 *</regex>
+		<input>ask_name</input>
+		<template>
+			<think>
+				<set name="user_name"><star index="2"/></set>
+			</think>
+			好的，很高兴认识您，<get name="user_name"/>。
+		</template>
+	</category>
+<category>
+  <regex>我的名字是 *</regex>
+  <template>
+    <think>
+      <set name="user_name"><star index="1"/></set>
+    </think>
+    欢迎您, <get name="user_name"/>,给您服务是我的荣幸.
+  </template>
+</category>
+<category>
+  <regex>* 记得我 * 吗</regex>
+  <template>您是 <get name="user_name"/>, 我还记得哦！</template>
+</category>
+	<category>
+		<regex>ask_sex</regex>
+		<template>
+			<random>
+				<li>不好意思，我还没有很智能，所以我得问您下，该称呼您先生还是女士</li>
+				<li>惭愧，我的识别技术还不大高，得问下您的性别</li>
+			</random>
+		</template>
+	</category>
+	<category>
+		<regex>* #男|男士|先生|大爷|男的 *</regex>
+		<input>ask_sex</input>
+		<template>
+			<think>
+				<set user_sex="男"></set>
+			</think>
+			好的，<sharp index="1" />。
+		</template>
+	</category>
+	<category>
+		<regex>* #女|女士|小姐|大妈|女的 *</regex>
+		<input>ask_sex</input>
+		<template>
+			<think>
+				<set user_sex="女"></set>
+			</think>
+			好的，<sharp index="1" />。
+		</template>
+	</category>
+
+	<category>
+		<regex>ask_age</regex>
+		<template>
+			<random>
+				<li>您今年多大年纪啊？</li>
+				<li>您今年多少岁呢？</li>
+			</random>
+		</template>
+	</category>
+	<category>
+		<regex>我今年 #\d+ *</regex>
+		<template>
+			<think>
+				<set name="user_age"><sharp index="1" /></set>
+			</think>
+			您今年<sharp index="1" />岁了啊。
+		</template>
+	</category>
+	<category>
+		<regex>* #\d+ *</regex>
+		<input>ask_age</input>
+		<template>
+			<think>
+				<set name="user_age"><sharp index="1" /></set>
+			</think>
+			您今年<sharp index="1" />岁了啊。
+		</template>
+	</category>
+
+	<category>
+		<regex>ask_birthday</regex>
+		<template>
+			<random>
+				<li>能否问您下，您的生日是哪年哪月哪号呢？</li>
+				<li>您是哪年哪月哪天出生的呢？</li>
+			</random>
+		</template>
+	</category>
+	<category>
+		<regex>* #\d+年\d+月\d+[日号]? *</regex>
+		<input>ask_birthday</input>
+		<template>
+			<think>
+				<set name="user_birthday"><sharp index="1" /></set>
+			</think>
+			<random>
+				<li>您是<sharp index="1" />的生日啊。</li>
+				<li>您的生日是<sharp index="1" />啊。</li>
+			</random>
+		</template>
+	</category>
+	<category>
+		<regex>我的生日是 #\d+年\d+月\d+[日号]? *</regex>
+		<template>
+			<think>
+				<set name="user_birthday"><sharp index="1" /></set>
+			</think>
+			<random>
+				<li>您是<sharp index="1" />的生日啊。</li>
+				<li>您的生日是<sharp index="1" />啊。</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<regex>ask_son</regex>
+		<template>
+			您有儿子吗？
+		</template>
+	</category>
+	<category>
+		<regex>有</regex>
+		<input>ask_son</input>
+		<template>
+			那您大儿子叫什么？
+		</template>
+	</category>
+	<category>
+		<regex>没有</regex>
+		<input>ask_son</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>#((我那)?(大儿子叫|他叫))? *</regex>
+		<input>那您大儿子叫什么</input>
+		<template>
+			那您二儿子叫什么？
+		</template>
+	</category>
+	<category>
+		<regex>#((我那)?(二儿子叫|他叫))? *</regex>
+		<input>那您二儿子叫什么</input>
+		<template>
+			那您还有其他儿子吗？叫什么？
+		</template>
+	</category>
+	<category>
+		<regex>* 没有 *</regex>
+		<input>那您二儿子叫什么</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>* 叫 *</regex>
+		<input>那您还有其他儿子吗 叫什么</input>
+		<template>
+			那您还有其他儿子吗？叫什么？
+		</template>
+	</category>
+	<category>
+		<regex>* 没有 *</regex>
+		<input>那您还有其他儿子吗 叫什么</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	
+
+
+	<category>
+		<regex>ask_dau</regex>
+		<template>
+			您有女儿吗？
+		</template>
+	</category>
+	<category>
+		<regex>有</regex>
+		<input>ask_dau</input>
+		<template>
+			那您大女儿叫什么？
+		</template>
+	</category>
+	<category>
+		<regex>没有</regex>
+		<input>ask_dau</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>#((我那)?(大女儿叫|他叫))? *</regex>
+		<input>那您大女儿叫什么</input>
+		<template>
+			那您二女儿叫什么？
+		</template>
+	</category>
+	<category>
+		<regex>#((我那)?(二女儿叫|他叫))? *</regex>
+		<input>那您二女儿叫什么</input>
+		<template>
+			那您还有其他女儿吗？叫什么？
+		</template>
+	</category>
+	<category>
+		<regex>* 没有 *</regex>
+		<input>那您二女儿叫什么</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>* 叫 *</regex>
+		<input>那您还有其他女儿吗 叫什么</input>
+		<template>
+			那您还有其他女儿吗？叫什么？
+		</template>
+	</category>
+	<category>
+		<regex>* 没有 *</regex>
+		<input>那您还有其他女儿吗 叫什么</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>ask_parent</regex>
+		<template>
+			您父母健在吗？
+		</template>
+	</category>
+	<category>
+		<regex>* 都不在了</regex>
+		<input>ask_parent</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>父亲 * 不在了</regex>
+		<regex>母亲 * 还在</regex>
+		<input>ask_parent</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>母亲 * 不在了</regex>
+		<regex>父亲 * 还在</regex>
+		<input>ask_parent</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>都好</regex>
+		<regex>都健在</regex>
+		<input>ask_parent</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+
+
+	<category>
+		<regex>ask_half</regex>
+		<template>
+			您有老伴吗？
+		</template>
+	</category>
+	<category>
+		<regex>* 有 *</regex>
+		<input>ask_half</input>
+		<template>
+			<srai>answer</srai>
+			<srai>ask_half_name</srai>
+		</template>
+	</category>
+	<category>
+		<regex>* #没有|不在了 *</regex>
+		<input>ask_half</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>ask_half_name</regex>
+		<template>
+			您老伴如何称呼？
+		</template>
+	</category>
+	<category>
+		<regex>#(他叫)? *</regex>
+		<input>ask_half_name</input>
+		<template>
+			<srai>answer</srai>
+		</template>
+	</category>
+	<category>
+		<regex>ask_friend</regex>
+		<template>
+			您有什么比较好的朋友吗？他叫什么？
+		</template>
+	</category>
+
+	<category>
+		<regex>#(我有(一)?个朋友叫|他叫)? *</regex>
+		<input>ask_friend</input>
+		<template>
+			<srai>answer</srai>
+			此外，您还有什么比较好的朋友吗？叫什么？
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_体重</pattern>
+			<template>
+				请问您的体重是多少？
+			</template>
+	</category>
+
+	<category>
+		<regex>我的体重 * #\d+ #斤|公斤|千克 *</regex>
+		<template>
+			<srai>answer</srai>
+			<think><add name="element_体重"><sharp index="1"></sharp></add></think>
+		</template>
+	</category>
+
+	<category>
+		<regex>* #\d+ #(斤|公斤|千克)? *</regex>
+		<input>ask_体重</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="element_体重"><sharp index="1"></sharp></add></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_血压</pattern>
+			<template>
+				请问您的血压是多少？
+			</template>
+	</category>
+
+	<category>
+		<regex>* #\d+ *</regex>
+		<input>ask_血压</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="element_血压"><sharp index="1"></sharp></add></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_身高</pattern>
+			<template>
+				请问您的身高多少？
+			</template>
+	</category>
+
+	<category>
+		<regex>* #\d+ *</regex>
+		<input>ask_身高</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="element_身高"><sharp index="1"></sharp></add></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_心率</pattern>
+			<template>
+				亲，您现在的心率又是多少呢？真情提示：心率是指心脏每分钟跳动的次数。
+			</template>
+	</category>
+
+	<category>
+		<regex>* #\d+ *</regex>
+		<input>ask_心率</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="element_心率"><sharp index="1"></sharp></add></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_睡眠质量</pattern>
+			<template>
+				主人，您近来睡眠质量好还是不好？
+			</template>
+	</category>
+	
+	<category>
+		<pattern>ask_睡眠时间</pattern>
+			<template>
+				主人，昨天您睡了几个小时？
+			</template>
+	</category>
+
+	<category>
+		<regex>* #.(小时)? *</regex>
+		<input>ask_睡眠质量</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="element_睡眠时间"><sharp index="1"></sharp></add></think>
+		</template>
+	</category>
+	
+
+	<category>
+		<regex>#(我的)? #(睡眠|睡眠质量)? *</regex>
+		<input>ask_睡眠质量</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="element_睡眠质量"><star index="1"></star></add></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_心情</pattern>
+			<template>
+				您最近心情怎样？愉快还是一般，或者寂寞？
+			</template>
+	</category>
+
+	<category>
+		<regex>#(我最近心情)? *</regex>
+		<input>ask_心情</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="element_心情"><star index="1"></star></add></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_血糖</pattern>
+		<template>
+			请问，您知道你的血糖值是多少吗？
+		</template>
+	</category>
+
+	<category>
+		<regex>#(我的)?(血糖值)?(是|为)? *</regex>
+		<input>ask_血糖</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="senior_血糖"><star index="1"></star></add></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_体温</pattern>
+		<template>
+			请问，您知道你现在的体温大概是多少吗？
+		</template>
+	</category>
+
+	<category>
+		<regex>#(我的)?(体温)?(是|为)? *</regex>
+		<input>ask_体温</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="senior_体温"><star index="1"></star></add></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_血脂</pattern>
+		<template>
+			请问，您清楚您的血脂是正常、偏高还是偏低？
+		</template>
+	</category>
+
+	<category>
+		<regex>* #(我的)?(血脂)?(是|为)? #正常|偏高|偏低 *</regex>
+		<input>ask_血脂</input>
+		<template>
+			<srai>answer</srai>
+			<think><add name="senior_血脂"><sharp index="1"></sharp></add></think>
+		</template>
+	</category>
+
+
+	<category>
+		<pattern>ask_高血压</pattern>
+			<template>
+				亲，现在开始调查关于你的患病史的一些情况。你是否曾经有过高血压？
+			</template>
+	</category>
+
+	<category>
+		<pattern>有*</pattern>
+		<input>ask_高血压</input>
+		<template>
+			好的，我知道了。
+			<think><set history_高血压="true"></set></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>没有*</pattern>
+		<input>ask_高血压</input>
+		<template>
+			好的，我知道了。
+			<think><set history_高血压="false"></set></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_糖尿病</pattern>
+			<template>
+				那么，您是否曾经有过糖尿病吗？
+			</template>
+	</category>
+
+	<category>
+		<pattern>有*</pattern>
+		<input>ask_糖尿病</input>
+		<template>
+			好的，我知道了。
+			<think><set history_糖尿病="true"></set></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>没有*</pattern>
+		<input>ask_diabetes</input>
+		<template>
+			好的，我知道了。
+			<think><set history_糖尿病="false"></set></think>
+		</template>
+	</category>
+
+	<category>
+		<pattern>ask_脑血栓</pattern>
+		<template>恩，好的，那么你是否患有脑血栓</template>
+	</category>
+
+<category>
+	<regex>#是|对|恩|有 </regex>
+	<input>ask_脑血栓</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_脑血栓="true"></set></think>
+	</template>
+</category>
+
+<category>
+	<regex>#不是|不对|没有 </regex>
+	<input>ask_脑血栓</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_脑血栓="false"></set></think>
+	</template>
+</category>
+
+
+
+<category>
+	<pattern>ask_冠心病</pattern>
+	<template>恩，好的，那么你是否患有冠心病</template>
+</category>
+
+<category>
+	<regex>#是|对|恩|有 </regex>
+	<input>ask_冠心病</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_冠心病="true"></set></think>
+	</template>
+</category>
+
+<category>
+	<regex>#不是|不对|没有 </regex>
+	<input>ask_冠心病</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_冠心病="false"></set></think>
+	</template>
+</category>
+<category>
+	<pattern>ask_心肌梗</pattern>
+	<template>恩，好的，那么你是否患有心肌梗</template>
+</category>
+<category>
+	<regex>#是|对|恩|有 </regex>
+	<input>ask_心肌梗</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_心肌梗="true"></set></think>
+	</template>
+</category>
+<category>
+	<regex>#不是|不对|没有 </regex>
+	<input>ask_心肌梗</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_心肌梗="false"></set></think>
+	</template>
+</category>
+<category>
+	<pattern>ask_关节炎</pattern>
+	<template>恩，好的，那么你是否患有关节炎</template>
+</category>
+<category>
+	<regex>#是|对|恩|有 </regex>
+	<input>ask_关节炎</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_关节炎="true"></set></think>
+	</template>
+</category>
+<category>
+	<regex>#不是|不对|没有 </regex>
+	<input>ask_关节炎</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_关节炎="false"></set></think>
+	</template>
+</category>
+<category>
+	<pattern>ask_风湿病</pattern>
+	<template>恩，好的，那么你是否患有风湿病</template>
+</category>
+<category>
+	<regex>#是|对|恩|有 </regex>
+	<input>ask_风湿病</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_风湿病="true"></set></think>
+	</template>
+</category>
+<category>
+	<regex>#不是|不对|没有 </regex>
+	<input>ask_风湿病</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_风湿病="false"></set></think>
+	</template>
+</category>
+<category>
+	<pattern>ask_皮肤病</pattern>
+	<template>恩，好的，那么你是否患有皮肤病</template>
+</category>
+<category>
+	<regex>#是|对|恩|有 </regex>
+	<input>ask_皮肤病</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_皮肤病="true"></set></think>
+	</template>
+</category>
+<category>
+	<regex>#不是|不对|没有 </regex>
+	<input>ask_皮肤病</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_皮肤病="false"></set></think>
+	</template>
+</category>
+<category>
+	<pattern>ask_脚气</pattern>
+	<template>恩，好的，那么你是否患有脚气</template>
+</category>
+<category>
+	<regex>#是|对|恩|有 </regex>
+	<input>ask_脚气</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_脚气="true"></set></think>
+	</template>
+</category>
+<category>
+	<regex>#不是|不对|没有 </regex>
+	<input>ask_脚气</input>
+	<template>
+		恩，好的，我记下了
+		<think><set history_脚气="false"></set></think>
+	</template>
+</category>
+
+</aiml>

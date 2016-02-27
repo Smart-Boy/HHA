@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HHA</string>
+    <string name="action_settings">设置</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="mainmenu">主菜单</string>
+    <string name="back">返回</string>
+    <string name="unabletoopensoftware">无法打开相应的软件</string>
+    <string name="hanyu">汉语</string>
+    <string name="yueyu">粤语</string>
+    <string name="setlanguage">设置语言</string>
+    <string name="setvoice">设置发音人</string>
+    <string name="woman">女人</string>
+    <string name="child">儿童</string>
+    <string name="systemsound">系统音量</string>
+    <string name="passwordHint">请输入密码</string>
+    <string name="passwordAgainHint">请再次验证密码</string>
+    <string name="loginButton">登录</string>
+    <string name="registerButton">注册</string>
+    <string name="userLogin">用户登录</string>
+    <string name="forgetPassword">忘记密码</string>
+    <string name="userNameHint">请输入用户名</string>
+    <string name="title_activity_about">北航ABS绝对值开发团队</string>
+    <string name="buaa_abs">北航ABS绝对值开发团队</string>
+    <string name="show_abs">欢乐的迷之七人组倾情奉献</string>
+    <string name="debug_mode">测试模式</string>
+    <string name="network_mode">联网模式</string>
+    <string name="title_activity_memo">Memo</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_suggest">Suggest</string>
+
+</resources>
